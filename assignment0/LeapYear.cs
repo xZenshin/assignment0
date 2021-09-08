@@ -11,16 +11,30 @@ public class TestClass
         {
             var testClass = new TestClass();
             Console.WriteLine("Enter Year:");
+            try
+            {
+                string input = Console.ReadLine();
+                int yearToConvert = Convert.ToInt32(input);
+                if (yearToConvert > 1582) {
 
-            string input = Console.ReadLine();
-            int yearToConvert = Convert.ToInt32(input);
+            
 
             if (testClass.IsLeapYear(yearToConvert)) {
                 Console.WriteLine("yeay");
             }
             else {
                 Console.WriteLine("Nay");
+                }
             }
+            else {
+                Console.WriteLine("Enter year above 1582 or i get mad! :(");
+            }
+            } catch (FormatException e) {
+                Console.WriteLine("Only enter numbers :(((((");
+            }
+
+
+            
         }
 
     public bool IsLeapYear(int year) 
